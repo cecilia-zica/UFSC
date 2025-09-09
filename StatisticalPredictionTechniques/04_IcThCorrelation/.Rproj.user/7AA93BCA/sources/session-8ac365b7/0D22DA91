@@ -1,0 +1,26 @@
+{
+    "id": "0D22DA91",
+    "path": "~/StatisticalPredictionTechniques/04_IcThCorrelation/simulacao.R",
+    "project_path": "simulacao.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": true,
+    "created": 1757306413892.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1757189177,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1757307189788,
+    "read_only": false,
+    "read_only_alternatives": []
+}
