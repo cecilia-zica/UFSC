@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Demo da Propriedade Display</title>
+    <style>
+        /* Apenas para deixar o nosso elemento de teste visível */
+        #caixa-teste {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            font-family: sans-serif;
+            border-radius: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Eu sou um texto antes da caixa.</p>
+    
+    <div id="caixa-teste">Caixa de Teste</div>
+    
+    <p>Eu sou um texto depois da caixa.</p>
+
+    <hr>
+    <h3>Clique para alterar o 'display' da caixa azul:</h3>
+    <button onclick="mudarDisplay('block')">Block</button>
+    <button onclick="mudarDisplay('inline')">Inline</button>
+    <button onclick="mudarDisplay('inline-block')">Inline-block</button>
+    <button onclick="mudarDisplay('none')">None (Esconder)</button>
+
+    <script>
+        // Seleciona a nossa caixa de teste uma única vez
+        const caixa = document.getElementById('caixa-teste');
+
+        // Função que será chamada pelos botões
+        function mudarDisplay(novoValor) {
+            console.log("Alterando display para:", novoValor);
+            caixa.style.display = novoValor;
+        }
+    </script>
+
+</body>
+</html>
