@@ -46,12 +46,12 @@ class Lista:
             -adicionamos o novo dado na primeira posição
        """
         novoElemento = ElementoLista(valor) 
-         if self__cont == 0:
+        if self.__cont == 0:
             raise ListaVaziaError("lista vazia")
         else:
             novoElemento.setProx(self.__inicio)
             self.__inicio = novoElemento
-            self.__cont ++= 1
+            self.__cont += 1
 
     def inserirComoUltimo(self, valor):
         novoElemento = ElementoLista(valor)
@@ -99,39 +99,37 @@ class Lista:
         anterior.setProx(novo) # anterior passa a apontar para o novo
         self.__cont += 1                
         
-    def InserirAntesDe (referencia, valor):
+    def InserirAntesDe(self, posicao, valor):
         """
-        Insere elemento antes de um valor referencia 
+        Insere elemento antes de uma posição informada
         """
         #--- Condições ---#
         if self.__cont == 0:
             raise ListaVaziaError("lista vazia")
 
-        elif posicao < 0 or posicao > self.__cont + 1:
+        elif posicao < 0 or posicao > self.__cont:
             raise PosicaoInvalidaError("posicao invalida")
 
         elif posicao == 0:
-            self.inserirComoPrimeiro()
+            self.inserirComoPrimeiro(valor)
             return
 
         elif posicao == self.__cont:
-            self.inserirComoUltimo()
+            self.inserirComoUltimo(valor)
             return
         
         # --- Inserção --- #
-        
-        novoElemento = ElementoLista()
-        
+        novoElemento = ElementoLista(valor)
         anterior = self.__inicio
-        for _ in range(anterior, posicao - 1):
+        for _ in range(posicao - 1):
             anterior = anterior.getProx()
 
-        novo = ElementoLista(valor)
-        novo.setProx(anterior.getProx) # novo aponta para o que era o próximo do anterior
-        anterior.setProx() # anterior passa a apontar para o novo
+        novoElemento.setProx(anterior.getProx())
+        anterior.setProx(novoElemento)
         self.__cont += 1
 
     def InserirDepoisDe (referencia, novo ):
+        
     
     def RetiraDaPosicao(valor, posicao):
         """Procedimento:

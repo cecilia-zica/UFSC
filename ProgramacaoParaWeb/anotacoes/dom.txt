@@ -1,0 +1,14 @@
+.filter()- Selecionar itens | Um novo array (com menos itens ou o mesmo nº) |	A Peneira
+.map()-	Transformar itens |	Um novo array (com o mesmo nº de itens) |	O Transformador
+.reduce()-	Consolidar itens |	Um único valor final | O Funil
+
+##########################################################################################
+reduce((acumulador, valorAtual, indice, arrayCompleto) => { ... }, valorInicial)
+-acumulador (acc): O valor que está sendo construído (obrigatório).
+-valorAtual (val): O item do array que estamos olhando agora (obrigatório).
+-indice (index): A posição (índice) do valorAtual no array (opcional).
+-arrayCompleto (array): O array original em que o reduce foi chamado (opcional).
+##########################################################################################
+Operador	Nome	O que compara?	Faz conversão de tipo?	5 vs "5"
+==	    Abstrato	  Apenas o valor	Sim	                 true
+===	    Estrito	        Valor E Tipo	Não	                 false

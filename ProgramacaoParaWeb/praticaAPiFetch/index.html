@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>UFs e Municípios - IBGE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label, select {
+      display: block;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Selecione um Estado e um Município</h2>
+
+  <label for="uf">Estado (UF):</label>
+  <select id="uf">
+    <option value="">Selecione uma UF</option>
+  </select>
+
+  <label for="municipio">Município:</label>
+  <select id="municipio" disabled>
+    <option value="">Selecione uma UF primeiro</option>
+  </select>
+
+  <script>
+    const ufSelect = document.getElementById('uf');
+    const municipioSelect = document.getElementById('municipio');
+
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+      .then(response => response.json())
+      .then(estados => {
+        estados.sort((a, b) => a.nome.localeCompare(b.nome));
+
+        // Preenche o select
+        estados.forEach(estado => {
+          const option = document.createElement('option');
+          option.value = estado.id;
+          option.textContent = `${estado.nome} (${estado.sigla})`;
+          ufSelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error('Erro ao carregar UFs:', error));
+
+    // Quando o usuário selecionar uma UF
+    ufSelect.addEventListener('change', () => {
+      const ufId = ufSelect.value;
+
+      // Limpa e desativa o select de municípios
+      municipioSelect.innerHTML = '<option value="">Selecione um município</option>';
+      municipioSelect.disabled = true;
+
+      if (!ufId) return;
+
+      // Faz a requisição dos municípios
+      fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufId}/municipios`)
+        .then(response => response.json())
+        .then(municipios => {
+          // Ordena alfabeticamente
+          municipios.sort((a, b) => a.nome.localeCompare(b.nome));
+
+          // Preenche o select
+          municipios.forEach(mun => {
+            const option = document.createElement('option');
+            option.value = mun.id;
+            option.textContent = mun.nome;
+            municipioSelect.appendChild(option);
+          });
+
+          // Ativa o seletor
+          municipioSelect.disabled = false;
+        })
+        .catch(error => console.error('Erro ao carregar municípios:', error));
+    });
+  </script>
+</body>
+</html>

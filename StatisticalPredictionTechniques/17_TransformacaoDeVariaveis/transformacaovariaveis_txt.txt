@@ -1,0 +1,27 @@
+y = B0 + B1 X + e 
+y= e elevado na B1+B1x
+
+y por x 
+
+Transformação dos dados ajuda na:
+-vairacao dos dados não é a mesma = problema
+-qqplot linha
+
+slide de relação linear que não explicou/mudou nada
+
+transformação para ausência de normalidade
+-perfeito: esq flutuação por cima da reta indica normalidade
+-resíduos com distribuição não normal -> pontos tendem a se afastar da reta de normalidade
+
+transformar entre relação linear/polinominal/exponencial
+
+sorvetescsv
+
+modelo com parábola está dando um r quadrado maior do que a maioria
+pode ter mais de uma situação para resolver um problema
+
+"a gente quer o melhor modelo para os dados que eu tenho, mas não quer dizer que o modelo é perfeito"
+
+
+
+
